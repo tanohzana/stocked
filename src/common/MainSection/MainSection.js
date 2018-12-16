@@ -18,8 +18,11 @@ const getSectionType = (type, logo) => {
 const MainSection = (props) => {
   const { theme, type, logo } = props
 
+  const themeStyle = style[theme]
+  const mainSectionStyle = style["main-section"]
+
   return (
-    <section className={style[theme]}>
+    <section className={`${themeStyle} ${mainSectionStyle}`}>
       {getSectionType(type, logo)}
     </section>
   )
