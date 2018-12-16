@@ -19,12 +19,13 @@ module.exports = {
           loader: "css-loader",
           options: {
             modules: true,
-            importLoaders: 1,
-            localIndentName: "[name]_[local]_[hash:base64]",
-            sourceMap: true,
-            minimize: true,
           },
         }],
+    }, {
+      test: /\.(png|svg|jpg|gif)$/,
+      use: [
+        'file-loader',
+      ]
     }],
   },
   plugins: [htmlPlugin],
