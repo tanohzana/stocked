@@ -1,10 +1,10 @@
 import React from "react"
-import TextField from '@material-ui/core/TextField';
+import TextField from "@material-ui/core/TextField"
 
 import style from "./MainSection.css"
 
 const SearchMainSection = (props) => {
-  const { logo } = props
+  const { logo, placeholderValue, onChangeHandle, onSearchSubmit } = props
 
   return (
     <div>
@@ -12,14 +12,19 @@ const SearchMainSection = (props) => {
         <img src={logo} />
       </div>
       <div className={style.searchFieldContainer}>
-        <TextField
-          id="outlined-error"
-          label="Search"
-          className={style.searchField}
-          fullWidth
-          margin="normal"
-          variant="outlined"
-        />
+        <form onSubmit={onSearchSubmit}>
+          <TextField
+            id="outlined-error"
+            label="Search"
+            value={placeholderValue}
+            onChange={onChangeHandle}
+            className={style.searchField}
+            name="symbol"
+            fullWidth
+            margin="normal"
+            variant="outlined"
+          />
+        </form>
       </div>
     </div>
   )

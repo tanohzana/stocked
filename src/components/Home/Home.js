@@ -7,12 +7,18 @@ import diagram from "../../assets/diagram.png"
 
 const Home = (props) => {
 
+  const placeholderValues = [
+    "test",
+    "village",
+  ]
+
   return (
     <div>
       <MainSection
         logo={diagram}
         theme="light-theme"
         type="search"
+        placeholderValues={placeholderValues}
       />
 
       <Section
