@@ -10,7 +10,7 @@ import "./index.css"
 
 const routes = [
   { name: 'Home', path: '/', component: Home },
-  { name: 'Stock', path: '/stocks', component: Stock },
+  { name: 'Stock', path: '/stocks/:stockId', component: Stock },
 ]
 
 const Index = () => (

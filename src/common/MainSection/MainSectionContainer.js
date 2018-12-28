@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { withRouter, Redirect } from "react-router"
 
 import MainSection from "./MainSection"
 
@@ -8,9 +9,11 @@ class MainSectionCaontainer extends Component {
 
     this.state = {
       placeholderValue: "",
+      goTo: "",
     }
 
     this.onSearchChangeHandle = this.onSearchChangeHandle.bind(this)
+    this.onSearchSubmit = this.onSearchSubmit.bind(this)
   }
 
   onSearchChangeHandle(event) {
@@ -21,17 +24,23 @@ class MainSectionCaontainer extends Component {
     })
   }
 
-  // @TODO: this should redirect to the search field
-  // value as stock symbol
   onSearchSubmit(event) {
     event.preventDefault()
-    console.log("test")
-    window.location = "/test"
+
+    this.setState({
+      goTo: "stocks",
+    })
   }
 
   render() {
     const { theme, type, logo, placeholderValues } = this.props
-    const { placeholderValue } = this.state
+    const { placeholderValue, goTo } = this.state
+
+    if (goTo === "stocks") {
+      const url = `/stocks/${placeholderValue}`
+
+      return <Redirect to={url} />
+    }
 
     return (
       <MainSection
