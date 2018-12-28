@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Stocked is a simple platform that allows users to track companies stocks and have a very fluid and user-friendly display of info.
+Stocked is a simple platform that allows users to track companies stokes and have a very fluid and user-friendly display of info.
 
 ## Run it
 
