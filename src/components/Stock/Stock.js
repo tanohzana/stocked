@@ -1,8 +1,12 @@
 import React from "react"
 
 const Stock = (props) => {
+  const { stockInfo } = props
+
   return (
-    <div>STOCK</div>
+    <div>
+      {JSON.stringify(stockInfo)}
+    </div>
   )
 }
 

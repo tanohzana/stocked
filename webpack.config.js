@@ -6,6 +6,10 @@ const htmlPlugin = new HtmlWebpackPlugin({
 })
 
 module.exports = {
+  entry: ['babel-polyfill', './src/index.js'],
+  output: {
+    filename: './dist/main.js',
+  },
   module: {
     rules: [{
       test: /\.js$/,
