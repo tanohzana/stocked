@@ -1,6 +1,14 @@
-# Stocked project
+# Stocked project 📈 👔
 
-## Cool links
+## Introduction
+
+Stocked is a simple platform that allows users to track companies stocks and have a very fluid and user-friendly display of info.
+
+## Run it
+
+`yarn install` then `yarn start`
+
+## References
 
 - https://www.chartjs.org/
 - https://graphql.org/

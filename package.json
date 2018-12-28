@@ -1,6 +1,6 @@
 {
   "name": "stocked",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "small project that's used to monitore stocks",
   "main": "./src/index.js",
   "scripts": {
