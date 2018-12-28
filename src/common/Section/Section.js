@@ -1,4 +1,5 @@
 import React from "react"
+import propTypes from "prop-types"
 
 import style from "./Section.css"
 
@@ -12,6 +13,10 @@ const Section = (props) => {
 
     </section>
   )
+}
+
+Section.propTypes = {
+  backgroundColor: propTypes.string.isRequired,
 }
 
 export default Section

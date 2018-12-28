@@ -1,10 +1,16 @@
 import React from "react"
 import TextField from "@material-ui/core/TextField"
+import propTypes from "prop-types"
 
 import style from "./MainSection.css"
 
 const SearchMainSection = (props) => {
-  const { logo, placeholderValue, onChangeHandle, onSearchSubmit } = props
+  const {
+    logo,
+    placeholderValue,
+    onChangeHandle,
+    onSearchSubmit,
+  } = props
 
   return (
     <div>
@@ -28,6 +34,13 @@ const SearchMainSection = (props) => {
       </div>
     </div>
   )
+}
+
+SearchMainSection.propTypes = {
+  logo: propTypes.string.isRequired,
+  placeholderValue: propTypes.string.isRequired,
+  onChangeHandle: propTypes.func.isRequired,
+  onSearchSubmit: propTypes.func.isRequired,
 }
 
 export default SearchMainSection

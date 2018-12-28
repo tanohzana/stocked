@@ -16,3 +16,4 @@ Stocked is a simple platform that allows users to track companies stocks and hav
 - https://material-ui.com/demos/text-fields/
 - https://iextrading.com/developer/docs/#book
 - https://reactjs.org/docs/getting-started.html
+- https://redux.js.org/basics/usage-with-react

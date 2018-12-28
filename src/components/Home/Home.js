@@ -1,4 +1,5 @@
 import React from "react"
+import propTypes from "prop-types"
 
 import MainSection from "../../common/MainSection/MainSectionContainer"
 import Section from "../../common/Section/Section"
@@ -35,5 +36,7 @@ const Home = (props) => {
     </div>
   )
 }
+
+Home.propTypes = {}
 
 export default Home

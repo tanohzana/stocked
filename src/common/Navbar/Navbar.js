@@ -1,4 +1,6 @@
 import React from "react"
+import propTypes from "prop-types"
+
 import "./Navbar.css"
 
 const Navbar = (props) => {
@@ -11,6 +13,11 @@ const Navbar = (props) => {
       </ul>
     </nav>
   )
+}
+
+Navbar.propTypes = {
+  buildRoutesToShow: propTypes.func.isRequired,
+  routes: propTypes.any.isRequired,
 }
 
 export default Navbar
