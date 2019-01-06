@@ -9,6 +9,7 @@ module.exports = {
   entry: ['babel-polyfill', './src/index.js'],
   output: {
     filename: './dist/main.js',
+    publicPath: '/',
   },
   module: {
     rules: [{
@@ -30,7 +31,19 @@ module.exports = {
       use: [
         'file-loader',
       ]
+    }, {
+      test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+      use: [{
+        loader: "file-loader",
+        options: {
+          name: "[name].[ext]",
+          outputPath: "./dist/fonts",
+        },
+      }],
     }],
+  },
+  devServer: {
+    historyApiFallback: true,
   },
   plugins: [htmlPlugin],
 }

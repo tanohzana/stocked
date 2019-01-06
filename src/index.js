@@ -7,6 +7,7 @@ import Stock from "./components/Stock"
 import Navbar, { createRoutes } from "./common/Navbar/NavbarContainer"
 
 import "./index.css"
+import "semantic-ui-css/semantic.min.css"
 
 const routes = [
   { name: 'Home', path: '/', component: Home },
@@ -14,7 +15,7 @@ const routes = [
 ]
 
 const Index = () => (
-  <Router>
+  <Router basename="/">
     <div>
       <Navbar
         routes={routes}
