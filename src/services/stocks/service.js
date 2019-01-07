@@ -29,10 +29,17 @@ const getPrice = async (stockId) => {
   return response.data
 }
 
+const getNews = async (stockId) => {
+  const response = await axios.get(`${baseUrl}/stock/${stockId}/news`)
+
+  return response.data
+}
+
 const stockService = {
   getOne,
   getLogo,
   getPrice,
+  getNews,
 }
 
 export default stockService

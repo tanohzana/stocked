@@ -10,9 +10,9 @@ class StockContainer extends Component {
       stockInfo: null,
       generalInfo: {},
       stockLogo: null,
-      stockOpen: false,
       linData: [],
       stockPrice: 0,
+      news: [],
     }
 
     this.getStockPrice = this.getStockPrice.bind(this)
@@ -25,11 +25,14 @@ class StockContainer extends Component {
     const stockLogo = await stockService.getLogo(stockId)
     await this.getStockPrice(stockId)
     await this.getStockGraph(stockId)
+    const news = await stockService.getNews(stockId)
 
-    this.setState({ stockLogo })
+    this.setState({ stockLogo, news })
 
-    this.priceTimer = setInterval(() => this.getStockPrice(stockId), 1500)
-    this.graphTimer = setInterval(() => this.getStockGraph(stockId), 15000)
+    if (this.stockInfo.quote.calculationPrice === "tops") {
+      this.priceTimer = setInterval(() => this.getStockPrice(stockId), 1500)
+      this.graphTimer = setInterval(() => this.getStockGraph(stockId), 15000)
+    }
   }
 
   async getStockPrice(stockId) {
@@ -59,9 +62,9 @@ class StockContainer extends Component {
       stockInfo,
       stockLogo,
       generalInfo,
-      stockOpen,
       lineData,
       stockPrice,
+      news,
     } = this.state
 
     return (stockInfo && stockLogo) ?
@@ -70,6 +73,7 @@ class StockContainer extends Component {
         stockLogo={stockLogo}
         generalInfo={generalInfo}
         lineData={lineData}
+        news={news}
         stockPrice={stockPrice}
       /> : <div>loading</div>
   }

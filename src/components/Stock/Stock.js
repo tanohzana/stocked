@@ -6,7 +6,7 @@ import { VictoryChart, VictoryLine } from "victory"
 import "./Stock.css"
 
 const Stock = (props) => {
-  const { stockInfo, stockLogo, victoryTheme, lineData, stockPrice } = props
+  const { stockInfo, stockLogo, victoryTheme, lineData, stockPrice, news } = props
 
   return (
     <div>
@@ -41,15 +41,51 @@ const Stock = (props) => {
       <Card.Group itemsPerRow={2}>
         <Card raised>
           <Card.Content>
-            <Grid columns={2} className="first-card">
-              <Grid.Row>
+            <Grid>
+              <Grid.Row className="text-center" columns={2}>
                 <Grid.Column>
-                  <h2><span>Latest close:</span> {stockInfo.quote.close}</h2>
+                  <h2>
+                    <span>Latest close:</span> {stockInfo.quote.close}
+                  </h2>
                 </Grid.Column>
                 <Grid.Column>
                   <h2>
                     <span>Price:</span> {stockPrice}
                   </h2>
+                </Grid.Column>
+              </Grid.Row>
+              <Grid.Row className="text-center" columns={2}>
+                <Grid.Column>
+                  <h3>
+                    <span>Latest open:</span> {stockInfo.quote.open}
+                  </h3>
+                </Grid.Column>
+                <Grid.Column>
+                  <h3>
+                    <span>Average volume:</span> {stockInfo.quote.avgTotalVolume}
+                  </h3>
+                </Grid.Column>
+              </Grid.Row>
+              <Grid.Row className="text-center" columns={2}>
+                <Grid.Column>
+                  <h3>
+                    <span>Low:</span> {stockInfo.quote.low}
+                  </h3>
+                </Grid.Column>
+                <Grid.Column>
+                  <h3>
+                    <span>High:</span> {stockInfo.quote.high}
+                  </h3>
+                </Grid.Column>
+              </Grid.Row>
+              <Grid.Row columns={1}>
+                <Grid.Column>
+                  <h3>News</h3>
+                  <div>
+                    {news.map(pieceOfNews => (
+                      <div>{pieceOfNews.headline}</div>
+                    ))}
+                  </div>
                 </Grid.Column>
               </Grid.Row>
             </Grid>
