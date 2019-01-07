@@ -20,7 +20,7 @@ const Index = () => (
       <Navbar
         routes={routes}
       />
-      <div>
+      <div className="main-container">
         {createRoutes(routes)}
       </div>
     </div>

@@ -33,7 +33,7 @@ class MainSectionCaontainer extends Component {
   }
 
   render() {
-    const { theme, type, logo, placeholderValues } = this.props
+    const { theme, type, logo } = this.props
     const { placeholderValue, goTo } = this.state
 
     if (goTo === "stocks") {

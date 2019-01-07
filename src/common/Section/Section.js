@@ -1,15 +1,13 @@
 import React from "react"
 import propTypes from "prop-types"
 
-import style from "./Section.css"
+import "./Section.css"
 
 const Section = (props) => {
   const { backgroundColor } = props
 
-  const backgroundStyle = style[`background-${backgroundColor}`]
-  const secondarySectinoStyle = style["secondary-section"]
   return (
-    <section className={`${secondarySectinoStyle} ${backgroundStyle}`}>
+    <section className={`secondary-section background-${backgroundColor}`}>
 
     </section>
   )

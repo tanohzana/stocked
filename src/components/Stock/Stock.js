@@ -1,68 +1,74 @@
 import React from "react"
 import propTypes from "prop-types"
-import { Button, Card, Image } from 'semantic-ui-react'
+import { Button, Card, Grid, Image, Label } from "semantic-ui-react"
+import { VictoryChart, VictoryLine } from "victory"
+
+import "./Stock.css"
 
 const Stock = (props) => {
-  const { stockInfo } = props
+  const { stockInfo, stockLogo, victoryTheme, lineData, stockPrice } = props
 
   return (
-    <Card.Group>
-      <Card>
+    <div>
+      <Card fluid raised>
         <Card.Content>
-          <Card.Header>Steve Sanders</Card.Header>
-          <Card.Meta>Friends of Elliot</Card.Meta>
+          <Image floated="right" size="mini" src={stockLogo} />
+          <Card.Header>
+            <h1>
+            {stockInfo.info.companyName} ({stockInfo.info.symbol})
+            {stockInfo.quote.calculationPrice === "tops" ?
+              <Label color="green">
+                OPEN
+              </Label>
+            : <Label color="red">
+              CLOSED
+            </Label>}
+            </h1>
+          </Card.Header>
+          <Card.Meta>
+            {stockInfo.info.tags.map(tag => (
+              <Label basic key={tag}>
+                {tag}
+              </Label>
+            ))}
+          </Card.Meta>
           <Card.Description>
-            Steve wants to add you to the group <strong>best friends</strong>
+            {stockInfo.info.description}
           </Card.Description>
         </Card.Content>
-        <Card.Content extra>
-          <div className='ui two buttons'>
-            <Button basic color='green'>
-              Approve
-            </Button>
-            <Button basic color='red'>
-              Decline
-            </Button>
-          </div>
-        </Card.Content>
       </Card>
-      <Card>
-        <Card.Content>
-          <Card.Header>Molly Thomas</Card.Header>
-          <Card.Meta>New User</Card.Meta>
-          <Card.Description>
-            Molly wants to add you to the group <strong>musicians</strong>
-          </Card.Description>
-        </Card.Content>
-        <Card.Content extra>
-          <div className='ui two buttons'>
-            <Button basic color='green'>
-              Approve
-            </Button>
-            <Button basic color='red'>
-              Decline
-            </Button>
-          </div>
-        </Card.Content>
-      </Card>
-      <Card>
-        <Card.Content>
-          <Card.Header>Jenny Lawrence</Card.Header>
-          <Card.Meta>New User</Card.Meta>
-          <Card.Description>Jenny requested permission to view your contact details</Card.Description>
-        </Card.Content>
-        <Card.Content extra>
-          <div className='ui two buttons'>
-            <Button basic color='green'>
-              Approve
-            </Button>
-            <Button basic color='red'>
-              Decline
-            </Button>
-          </div>
-        </Card.Content>
-      </Card>
-    </Card.Group>
+
+      <Card.Group itemsPerRow={2}>
+        <Card raised>
+          <Card.Content>
+            <Grid columns={2} className="first-card">
+              <Grid.Row>
+                <Grid.Column>
+                  <h2><span>Latest close:</span> {stockInfo.quote.close}</h2>
+                </Grid.Column>
+                <Grid.Column>
+                  <h2>
+                    <span>Price:</span> {stockPrice}
+                  </h2>
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>
+          </Card.Content>
+        </Card>
+        <Card raised>
+          <VictoryChart>
+            <VictoryLine
+              style={{
+                data: { stroke: "#c43a31" },
+                parent: { border: "1px solid #ccc"}
+              }}
+              data={lineData}
+              animate
+            />
+          </VictoryChart>
+        </Card>
+      </Card.Group>
+    </div>
   )
 }
 
@@ -71,3 +77,46 @@ Stock.propTypes = {
 }
 
 export default Stock
+
+// Stock basic info
+
+// avgTotalVolume: 29681390
+// calculationPrice: "close"
+// change: 6.21
+// changePercent: 0.04714
+// close: 137.95
+// closeTime: 1546635600163
+// companyName: "Facebook Inc."
+// delayedPrice: 137.92
+// delayedPriceTime: 1546635600224
+// extendedChange: 0.05
+// extendedChangePercent: 0.00036
+// extendedPrice: 138
+// extendedPriceTime: 1546639157667
+// high: 138
+// iexAskPrice: null
+// iexAskSize: null
+// iexBidPrice: null
+// iexBidSize: null
+// iexLastUpdated: null
+// iexMarketPercent: null
+// iexRealtimePrice: null
+// iexRealtimeSize: null
+// iexVolume: null
+// latestPrice: 137.95
+// latestSource: "Close"
+// latestTime: "January 4, 2019"
+// latestUpdate: 1546635600163
+// latestVolume: 28250498
+// low: 133.75
+// marketCap: 396439001075
+// open: 133.95
+// openTime: 1546612200839
+// peRatio: 18.67
+// previousClose: 131.74
+// primaryExchange: "Nasdaq Global Select"
+// sector: "Technology"
+// symbol: "FB"
+// week52High: 218.62
+// week52Low: 123.02
+// ytdChange: 0.06387054245283005

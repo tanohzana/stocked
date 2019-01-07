@@ -34,6 +34,7 @@
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
     "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^0.84.0"
+    "semantic-ui-react": "^0.84.0",
+    "victory": "^31.0.2"
   }
 }

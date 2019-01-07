@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 import SearchMainSection from "./SearchMainSection"
 import DefaultMainSection from "./DefaultMainSection"
 
-import style from "./MainSection.css"
+import "./MainSection.css"
 
 const getSectionType = (type, logo, placeholderValue, onChangeHandle, onSearchSubmit) => {
   switch(type) {
@@ -30,11 +30,8 @@ const MainSection = (props) => {
     onSearchSubmit,
   } = props
 
-  const themeStyle = style[theme]
-  const mainSectionStyle = style["main-section"]
-
   return (
-    <section className={`${themeStyle} ${mainSectionStyle}`}>
+    <section className={`${theme} main-section`}>
       {getSectionType(type, logo, placeholderValue, onChangeHandle, onSearchSubmit)}
     </section>
   )
