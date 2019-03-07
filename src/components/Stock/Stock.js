@@ -1,12 +1,12 @@
 import React from "react"
 import propTypes from "prop-types"
-import { Button, Card, Grid, Image, Label } from "semantic-ui-react"
+import { Card, Grid, Image, Label, Transition } from "semantic-ui-react"
 import { VictoryChart, VictoryLine } from "victory"
 
 import "./Stock.css"
 
 const Stock = (props) => {
-  const { stockInfo, stockLogo, victoryTheme, lineData, stockPrice, news } = props
+  const { stockInfo, stockLogo, victoryTheme, lineData, stockPrice, news, priceVisibility, trendColor } = props
 
   return (
     <div>
@@ -39,51 +39,42 @@ const Stock = (props) => {
       </Card>
 
       <Card.Group itemsPerRow={2}>
-        <Card raised>
+        <Card raised className="left-info">
           <Card.Content>
             <Grid>
               <Grid.Row className="text-center" columns={2}>
                 <Grid.Column>
-                  <h2>
-                    <span>Latest close:</span> {stockInfo.quote.close}
-                  </h2>
+                    <span>Latest close:</span> <h2 className="inline">{stockInfo.quote.close}</h2>
                 </Grid.Column>
                 <Grid.Column>
-                  <h2>
-                    <span>Price:</span> {stockPrice}
-                  </h2>
-                </Grid.Column>
-              </Grid.Row>
-              <Grid.Row className="text-center" columns={2}>
-                <Grid.Column>
-                  <h3>
-                    <span>Latest open:</span> {stockInfo.quote.open}
-                  </h3>
-                </Grid.Column>
-                <Grid.Column>
-                  <h3>
-                    <span>Average volume:</span> {stockInfo.quote.avgTotalVolume}
-                  </h3>
+                    <span>Price:</span>
+                    <Transition animation="shake" duration={100} visible={priceVisibility}>
+                      <h2 className="inline" style={{ color: trendColor }}>{stockPrice}</h2>
+                    </Transition>
                 </Grid.Column>
               </Grid.Row>
               <Grid.Row className="text-center" columns={2}>
                 <Grid.Column>
-                  <h3>
-                    <span>Low:</span> {stockInfo.quote.low}
-                  </h3>
+                  <span>Latest open:</span> <h3 className="inline">{stockInfo.quote.open}</h3>
                 </Grid.Column>
                 <Grid.Column>
-                  <h3>
-                    <span>High:</span> {stockInfo.quote.high}
-                  </h3>
+                    <span>Average volume:</span> <h3 className="inline">{stockInfo.quote.avgTotalVolume}</h3>
+                </Grid.Column>
+              </Grid.Row>
+              <Grid.Row className="text-center" columns={2}>
+                <Grid.Column>
+                  <span>Low:</span> <h3 className="inline">{stockInfo.quote.low}</h3>
+                </Grid.Column>
+                <Grid.Column>
+                  <span>High:</span> <h3 className="inline">{stockInfo.quote.high}</h3>
                 </Grid.Column>
               </Grid.Row>
               <Grid.Row columns={1}>
                 <Grid.Column>
                   <h3>News</h3>
                   <div>
-                    {news.map(pieceOfNews => (
-                      <div>{pieceOfNews.headline}</div>
+                    {news.map((pieceOfNews, index) => (
+                      <div key={index}>{pieceOfNews.headline}</div>
                     ))}
                   </div>
                 </Grid.Column>
@@ -95,7 +86,7 @@ const Stock = (props) => {
           <VictoryChart>
             <VictoryLine
               style={{
-                data: { stroke: "#c43a31" },
+                data: { stroke: trendColor },
                 parent: { border: "1px solid #ccc"}
               }}
               data={lineData}

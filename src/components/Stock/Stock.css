@@ -5,3 +5,11 @@
 .text-center {
   text-align: center;
 }
+
+.inline {
+  display: inline-block;
+}
+
+.ui.cards > .card.left-info > .content {
+  font-size: 17px;
+}
