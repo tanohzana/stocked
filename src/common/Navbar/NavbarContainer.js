@@ -9,15 +9,13 @@ class NavbarContainer extends Component {
   }
 
   buildRoutesToShow(routes) {
-    const routesToShow = []
-
-    routes.forEach(route => {
-      routesToShow.push(
+    const routesToShow = routes
+      .filter(route => route.navbar)
+      .map(route => (
         <li key={route.name}>
           <Link to={route.path}>{route.name}</Link>
         </li>
-      )
-    })
+      ))
 
     return routesToShow
   }
