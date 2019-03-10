@@ -13,3 +13,8 @@
 .ui.cards > .card.left-info > .content {
   font-size: 17px;
 }
+
+.component-container {
+  margin-left: 10px;
+  margin-right: 10px;
+}

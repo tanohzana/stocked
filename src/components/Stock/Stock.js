@@ -9,7 +9,7 @@ const Stock = (props) => {
   const { stockInfo, stockLogo, victoryTheme, lineData, stockPrice, news, priceVisibility, trendColor } = props
 
   return (
-    <div>
+    <div className="component-container">
       <Card fluid raised>
         <Card.Content>
           <Image floated="right" size="mini" src={stockLogo} />

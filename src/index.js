@@ -16,7 +16,7 @@ const routes = [
   { name: 'Stocks', path: '/stocks', component: StocksDashboard, navbar: true },
 ]
 
-const Index = () : HTMLDocument => (
+const Index = () => (
   <Router basename="/">
     <div>
       <Navbar
