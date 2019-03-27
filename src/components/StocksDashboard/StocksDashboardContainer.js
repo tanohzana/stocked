@@ -29,16 +29,12 @@ const StocksDashboardContainer = () => {
   })
 
   socketLast.on("connect", () => {
-    console.log("socketLast connected.")
-    
-    socketLast.emit("subscribe", "snap,fb,aapl,dis,pen,twlo,jnj")
+    socketLast.emit("subscribe", "snap,fb,aapl,dis,pen,twlo,jnj,mc.pa")
   })
 
   socketTradingStatus.on("connect", () => {
-    console.log("socketTradingStatus connected.")
-    
     socketLast.emit("subscribe", JSON.stringify({
-      symbols: ["snap,fb,aapl,dis,pen,twlo,jnj"],
+      symbols: ["snap,fb,aapl,dis,pen,twlo,jnj,mc.pa"],
       channels: ['tradingstatus'],
     }))
   })

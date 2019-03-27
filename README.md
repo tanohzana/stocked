@@ -17,3 +17,10 @@ Stocked is a simple platform that allows users to track companies stokes and hav
 - https://iextrading.com/developer/docs/#book
 - https://reactjs.org/docs/getting-started.html
 - https://redux.js.org/basics/usage-with-react
+
+
+⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️️️️️️️️️⚠️️️️️️️️️⚠️️️️️️️️️⚠️️️️️️️️️⚠️️️️️️️️️
+
+This is on standby as IEX only references stocks from the US markets only.
+
+⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️️️️️️️️️⚠️️️️️️️️️⚠️️️️️️️️️⚠️️️️️️️️️⚠️️️️️️️️️⚠️️️️️️️️️
